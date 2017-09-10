@@ -32,8 +32,8 @@ class Detector {
                     fatalError("error")
             }
             
-            let confidence = String(format: "%.2f", firstResult.confidence * 100)
-            result("\(firstResult.identifier) - \(confidence)%")
+            let confidence = String(format: "%.2f", firstResult.confidence * 100)            
+            result("\(firstResult.identifier.split(separator: ",")[0]) - \(confidence)%")
         }
         
         DispatchQueue.global(qos: .userInteractive).async {

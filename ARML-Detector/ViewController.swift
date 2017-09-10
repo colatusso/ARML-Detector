@@ -65,7 +65,9 @@ class ViewController: UIViewController, ARSKViewDelegate {
         
         detector.detect(viewImage: view) { (result: String) in
             labelNode.text = result
-            let labelSize = CGSize(width: labelNode.frame.size.width, height: labelNode.frame.size.height)
+            let labelSize = (labelNode.frame.size.width > labelNode.frame.size.height) ?
+                CGSize(width: labelNode.frame.size.width, height: labelNode.frame.size.height) :
+                CGSize(width: labelNode.frame.size.height, height: labelNode.frame.size.width)
             let color = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
             let background = SKSpriteNode(color: color, size: labelSize)
             
